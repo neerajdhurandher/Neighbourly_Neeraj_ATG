@@ -18,31 +18,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/location_card_view" />
 
-<androidx.cardview.widget.CardView
+  <androidx.cardview.widget.CardView
     android:id="@+id/location_card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="20dp"
-    android:layout_margin="16dp"
-    android:padding="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
     app:cardBackgroundColor="#3C0588"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.032"
+    app:layout_constraintVertical_bias="0.015"
 
     >
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
             android:text="@string/change_neighbourhood"
             android:textColor="#D6D0D0"
             android:textSize="20sp" />
@@ -50,7 +52,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             >
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -106,7 +108,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             >
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -147,15 +149,21 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:text="@string/add_neighbourhood"
             android:drawableLeft="@drawable/add_plus_icon"
             android:drawablePadding="4dp"
             android:textColor="#D6D0D0"
             android:textSize="20sp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            />
+
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>
 
 
