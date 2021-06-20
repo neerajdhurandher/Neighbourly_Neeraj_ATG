@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "713207041136",
+    "project_id": "neighbourly-neeraj-atg",
+    "storage_bucket": "neighbourly-neeraj-atg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713207041136:android:864dc39ce474510476f8b5",
+        "android_client_info": {
+          "package_name": "com.example.neighbourly_neeraj_atg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713207041136-e8fa8dbodafirue3nje3rq02e65a5883.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.neighbourly_neeraj_atg",
+            "certificate_hash": "558ed667dfd47e209273a31b7886492c95069342"
+          }
+        },
+        {
+          "client_id": "713207041136-dql37ckkfh0t8riofbj3sa000rs5rkha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbxI6W95aiyv2r7TgMoXM110NnFSwbSag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713207041136-dql37ckkfh0t8riofbj3sa000rs5rkha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

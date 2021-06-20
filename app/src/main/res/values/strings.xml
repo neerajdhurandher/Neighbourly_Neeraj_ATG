@@ -1,0 +1,19 @@
+<resources>
+    <string name="default_web_client_id" translatable="false">713207041136-dql37ckkfh0t8riofbj3sa000rs5rkha.apps.googleusercontent.com</string>
+
+    <string name="app_name">Neighbourly_Neeraj_ATG</string>
+    <string name="save">Save</string>
+    <string name="first_answer">FIRST ANSWER</string>
+    <string name="post">POST</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="change_neighbourhood">Change neighbourhood</string>
+    <string name="location">Location</string>
+    <string name="remove">Remove</string>
+    <string name="add_neighbourhood">Add neighbourhood</string>
+    <string name="what_do_you_want_to_post">What do you want to post</string>
+    <string name="photo">Photo</string>
+    <string name="question">Question</string>
+    <string name="poll">Poll</string>
+    <string name="event">Event</string>
+</resources>
