@@ -21,27 +21,54 @@
         android:visibility="gone"
         />
 
+    <RelativeLayout
+        android:id="@+id/post_details_relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="?actionBarSize"
+        android:scrollbars="none"
         >
 
+        <LinearLayout
+            android:id="@+id/post_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/full_constraint_Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/image_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
-                android:background="#C8FA4242"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/bg1"
+                 />
+
+            </RelativeLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/show_post_cancel_btn"
@@ -84,11 +111,10 @@
                 android:layout_marginEnd="4dp"
                 android:layout_marginBottom="4dp"
                 android:background="#fff"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView">
+                app:layout_constraintTop_toBottomOf="@+id/image_relative_layout">
 
                 <LinearLayout
                     android:id="@+id/postedUserDetailsLayout"
@@ -143,7 +169,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="location"
+                            android:text="Chhattisgarh"
                             android:textSize="12sp"
                             android:textColor="@color/grey_text"
                             app:drawableStartCompat="@drawable/location_icon" />
@@ -606,123 +632,20 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="8dp"
-                    android:background="#E8E4E2"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:orientation="horizontal">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@drawable/user_icon"
-                            app:civ_border_color="#000000"
-                            app:civ_border_width="2dp" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginEnd="8dp"
-                                    android:text="Neeraj"
-                                    android:textColor="@color/grey_text"
-                                    android:textSize="15sp" />
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text=" 3 hours ago"
-                                    android:textColor="@color/grey_text"
-                                    android:textSize="10sp" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:textSize="15sp"
-                                android:textColor="@color/purple_text_colour"
-                                android:text="This is First answer content which is shown at the feed section"
-                                />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="4dp"
-                                >
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:textColor="#fff"
-                                    android:text="."
-                                    android:layout_weight="1"
-                                    />
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginEnd="16dp"
-                                    android:src="@drawable/reply_icon"
-                                    />
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginEnd="16dp"
-                                    android:src="@drawable/like_icon"
-                                    />
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginEnd="16dp"
-                                    android:src="@drawable/ic_3_three_dot"
-                                    />
-
-
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                </RelativeLayout>
 
 
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+        </LinearLayout>
+
     </ScrollView>
+
+
+    </RelativeLayout>
 
 
     <RelativeLayout
@@ -732,6 +655,7 @@
         android:layout_gravity="bottom"
         android:background="@color/orange"
         android:visibility="visible"
+        android:focusable="true"
         >
 
         <LinearLayout
@@ -749,31 +673,30 @@
                 android:src="@drawable/train_scene"
                 />
 
-        <LinearLayout
+             <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="vertical"
-            android:layout_alignParentStart="true"
-            >
+                 android:focusable="true"
+            android:orientation="vertical">
             <EditText
                 android:id="@+id/answer_text"
                 android:layout_width="wrap_content"
-                android:layout_height="?actionBarSize"
+                android:layout_height="match_parent"
                 android:hint="Enter Here"
                 android:textColorHint="#fff"
                 android:textColor="#fff"
-                android:textSize="20sp"
                 />
 
             <TextView
                 android:id="@+id/show_location_tv"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="4dp"
+                android:layout_marginBottom="4dp"
                 android:text="Munnekollal"
                 android:textColor="#CCC2C2"
+                android:focusable="true"
                 android:drawablePadding="8dp"
                 android:drawableLeft="@drawable/location_icon"
                 />

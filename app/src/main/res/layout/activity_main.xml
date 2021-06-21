@@ -30,12 +30,12 @@
             android:orientation="horizontal">
 
             <RelativeLayout
-                android:layout_width="60dp"
+                android:layout_width="48dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="4dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="60dp"
+                    android:layout_width="48dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/train_scene" />
 
@@ -44,7 +44,7 @@
                     android:layout_height="16dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:background="#16D3CC"
+                    app:civ_circle_background_color="#16D3CC"
                     android:src="@drawable/add_plus_icon" />
 
             </RelativeLayout>
@@ -52,7 +52,7 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/location_btn"
-                android:layout_width="45dp"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
                 android:src="@drawable/location_icon_white"
@@ -62,7 +62,7 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/search_btn"
-                android:layout_width="45dp"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
                 android:src="@drawable/search_icon"
@@ -76,11 +76,12 @@
         <Button
             android:id="@+id/post_btn"
             android:layout_width="120dp"
-            android:layout_height="?actionBarSize"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_alignParentEnd="true"
             android:background="@drawable/post_btn_style"
             android:drawableLeft="@drawable/add_post_icon"
-            android:padding="8dp"
             android:text="@string/post"
             app:backgroundTint="#16D3CC"
 
@@ -107,25 +108,29 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:paddingTop="16dp"
+            android:scrollbars="none"
         >
 
             <LinearLayout
+                android:id="@+id/all_post_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:orientation="vertical"
-
                 >
 
                 <TextView
+                    android:id="@+id/welcome_text"
                     android:layout_width="match_parent"
                     android:layout_height="?actionBarSize"
                     android:text="Welcome back to Munnekollal"
                     android:textColor="#fff"
                     android:textSize="18sp"
                     android:textAlignment="center"
+                    android:focusable="true"
+                    android:nextFocusDown="@id/card_view_0"
                     />
 
                 <androidx.cardview.widget.CardView
@@ -136,8 +141,10 @@
                     app:cardCornerRadius="20dp"
                     app:cardElevation="10dp"
                     app:cardBackgroundColor="@color/orange"
-                    android:nextFocusUp="@id/card_view_1"
-                    android:nextFocusDown="@id/card_view_2"
+                    android:focusable="true"
+                    android:nextFocusDown="@id/card_view_1"
+                    android:nextFocusUp="@id/welcome_text"
+
                     >
 
                     <RelativeLayout
@@ -165,6 +172,7 @@
                             android:textSize="24sp"
                             android:textColor="#fff"
                             android:textAlignment="center"
+                            android:focusable="true"
                             />
 
                         <TextView
@@ -179,7 +187,10 @@
                             android:text="Post a photo of you and your neighboours playing sport toghter"
                             android:textAlignment="center"
                             android:textColor="#fff"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp"
+                            android:focusable="false"
+                            
+                            />
 
                         <TextView
                            android:layout_width="match_parent"
@@ -190,22 +201,26 @@
                            android:textColor="#2F6DCA"
                            android:textAlignment="center"
                            android:layout_alignParentBottom="true"
+                            android:focusable="false"
+                            
                            />
 
                     </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
 
-
+               <!--Image--> 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_view_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:layout_marginBottom="8dp"
                     app:cardBackgroundColor="#000"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="10dp"
-                    android:nextFocusUp="@id/card_view_1"
+                    android:focusable="true"
+                    android:nextFocusUp="@id/card_view_0"
                     android:nextFocusDown="@id/card_view_2"
                     >
 
@@ -219,8 +234,10 @@
                             android:id="@+id/imageView"
                             android:layout_width="match_parent"
                             android:layout_height="240dp"
-                            android:background="#C8FA4242"
-                            android:visibility="visible"
+                            android:scaleX="1.5"
+                            android:scaleY="1.5"
+                            android:src="@drawable/bg1"
+                            android:focusable="true"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
@@ -247,16 +264,18 @@
                             android:id="@+id/basic_info_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_marginTop="12dp"
-                            android:layout_marginEnd="4dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="4dp"
                             android:layout_marginBottom="4dp"
                             android:background="#fff"
-
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/imageView">
+                            app:layout_constraintTop_toBottomOf="@+id/imageView"
+                            
+
+                            >
 
                             <LinearLayout
                                 android:id="@+id/postedUserDetailsLayout"
@@ -264,7 +283,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="2dp"
                                 android:layout_marginTop="2dp"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:focusable="false"
+                                
+                                >
 
                                 <de.hdodenhof.circleimageview.CircleImageView
                                     android:id="@+id/user_Image"
@@ -278,13 +300,17 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_marginStart="8dp"
-                                    android:orientation="vertical">
+                                    android:orientation="vertical"
+                                    android:focusable="false"
+                                    >
 
                                     <LinearLayout
                                         android:id="@+id/abc"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
+                                        android:orientation="horizontal"
+                                        android:focusable="false"
+                                        >
 
                                         <TextView
                                             android:id="@+id/username_show"
@@ -293,7 +319,8 @@
                                             android:layout_marginEnd="4dp"
                                             android:text="Neeraj Dhurandher"
                                             android:textColor="#000"
-                                            android:textSize="16sp" />
+                                            android:textSize="16sp"
+                                            android:focusable="false"/>
 
 
                                         <TextView
@@ -302,7 +329,8 @@
                                             android:layout_height="wrap_content"
                                             android:text=" 3 hours ago"
                                             android:textSize="12sp"
-                                            android:textColor="@color/grey_text" />
+                                            android:textColor="@color/grey_text"
+                                            android:focusable="false"/>
 
                                     </LinearLayout>
 
@@ -311,10 +339,12 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="2dp"
-                                        android:text="location"
+                                        android:text="Chhattisgarh"
                                         android:textSize="12sp"
                                         android:textColor="@color/grey_text"
-                                        app:drawableStartCompat="@drawable/location_icon" />
+                                        app:drawableStartCompat="@drawable/location_icon"
+                                        android:focusable="false"
+                                        />
 
                                 </LinearLayout>
 
@@ -335,6 +365,7 @@
                         android:textColor="@color/design_default_color_primary"
                         android:textSize="16sp"
                         android:textStyle="bold"
+                        android:focusable="false"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -351,18 +382,23 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/content_show"
                             app:layout_constraintVertical_bias="0.0"
+                            android:focusable="false"
 
                             >
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:focusable="false"
+                                >
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
+                                    android:orientation="horizontal"
+                                    android:focusable="false"
+                                    >
 
                                     <TextView
                                         android:layout_width="match_parent"
@@ -373,7 +409,8 @@
                                         android:paddingEnd="10dp"
                                         android:text="1 Like"
                                         android:textAlignment="textEnd"
-                                        android:textColor="@color/black" />
+                                        android:textColor="@color/black"
+                                        android:focusable="false"/>
 
 
                                 </LinearLayout>
@@ -383,7 +420,8 @@
                                     android:layout_height="2dp"
                                     android:layout_marginStart="16dp"
                                     android:layout_marginEnd="16dp"
-                                    android:background="#D5CCCC" />
+                                    android:background="#D5CCCC"
+                                    android:focusable="false"/>
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -393,7 +431,9 @@
                                     android:paddingStart="-4dp"
                                     android:paddingTop="4dp"
                                     android:paddingEnd="-4dp"
-                                    android:paddingBottom="0dp">
+                                    android:paddingBottom="0dp"
+                                    android:focusable="false"
+                                    >
 
                                     <Button
                                         android:layout_width="wrap_content"
@@ -402,7 +442,9 @@
                                         android:drawableLeft="@drawable/save_icon"
                                         android:text="@string/save"
                                         android:textColor="#6C6A6A"
-                                        app:backgroundTint="#FFFFFF" />
+                                        app:backgroundTint="#FFFFFF"
+                                        android:focusable="false"
+                                        />
 
                                     <Button
                                         android:layout_width="wrap_content"
@@ -411,7 +453,8 @@
                                         android:drawableLeft="@drawable/like_icon"
                                         android:text="Like"
                                         android:textColor="#6C6A6A"
-                                        app:backgroundTint="#FFFFFF" />
+                                        app:backgroundTint="#FFFFFF"
+                                        android:focusable="false"/>
 
                                     <Button
                                         android:layout_width="wrap_content"
@@ -420,7 +463,8 @@
                                         android:drawableLeft="@drawable/answer_icon"
                                         android:text="Comment"
                                         android:textColor="@color/orange"
-                                        app:backgroundTint="#FFFFFF" />
+                                        app:backgroundTint="#FFFFFF"
+                                        android:focusable="false"/>
 
 
                                 </LinearLayout>
@@ -434,8 +478,7 @@
 
 
                 </androidx.cardview.widget.CardView>
-
-
+                
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_view_2"
                     android:layout_width="match_parent"
@@ -445,6 +488,7 @@
                     app:cardBackgroundColor="#000"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="0dp"
+                    android:focusable="true"
                     android:nextFocusUp="@id/card_view_1"
                     android:nextFocusDown="@id/card_view_3"
                     >
@@ -481,6 +525,7 @@
                             android:layout_marginTop="12dp"
                             android:layout_marginEnd="4dp"
                             android:layout_marginBottom="4dp"
+                            
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="parent"
@@ -491,7 +536,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="2dp"
                                 android:layout_marginTop="2dp"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:focusable="false">
 
                                 <de.hdodenhof.circleimageview.CircleImageView
 
@@ -505,13 +551,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_marginStart="8dp"
-                                    android:orientation="vertical">
+                                    android:orientation="vertical"
+                                    android:focusable="false">
 
                                     <LinearLayout
 
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
+                                        android:orientation="horizontal"
+                                        android:focusable="false">
 
                                         <TextView
 
@@ -520,7 +568,8 @@
                                             android:layout_marginEnd="4dp"
                                             android:text="Neeraj Dhurandher"
                                             android:textColor="#000"
-                                            android:textSize="16sp" />
+                                            android:textSize="16sp"
+                                            android:focusable="false"/>
 
 
                                         <TextView
@@ -529,7 +578,8 @@
                                             android:layout_height="wrap_content"
                                             android:text=" 3 hours ago"
                                             android:textSize="12sp"
-                                            android:textColor="@color/grey_text" />
+                                            android:textColor="@color/grey_text"
+                                            android:focusable="false"/>
 
                                     </LinearLayout>
 
@@ -538,7 +588,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="2dp"
-                                        android:text="location"
+                                        android:text="Chhattisgarh"
                                         android:textSize="12sp"
                                         android:textColor="@color/grey_text"
                                         app:drawableStartCompat="@drawable/location_icon" />
@@ -562,6 +612,7 @@
                             android:textColor="@color/design_default_color_primary"
                             android:textSize="20sp"
                             android:textStyle="bold"
+                            android:focusable="false"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
@@ -576,6 +627,7 @@
                             android:layout_marginEnd="4dp"
                             android:paddingBottom="8dp"
                             android:visibility="visible"
+                            android:focusable="false"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintStart_toStartOf="parent"
@@ -585,7 +637,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="2dp"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:focusable="false">
 
                                 <de.hdodenhof.circleimageview.CircleImageView
                                     android:layout_width="48dp"
@@ -595,6 +648,7 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:focusable="false"
                                     android:orientation="vertical">
 
 
@@ -603,7 +657,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="4dp"
-                                        android:orientation="horizontal">
+                                        android:orientation="horizontal"
+                                        android:focusable="false">
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -611,7 +666,8 @@
                                             android:layout_marginEnd="8dp"
                                             android:text="Neeraj"
                                             android:textColor="@color/grey_text"
-                                            android:textSize="15sp" />
+                                            android:textSize="15sp"
+                                            android:focusable="false"/>
 
 
                                         <TextView
@@ -619,7 +675,8 @@
                                             android:layout_height="wrap_content"
                                             android:text=" 3 hours ago"
                                             android:textColor="@color/grey_text"
-                                            android:textSize="10sp" />
+                                            android:textSize="10sp"
+                                            android:focusable="false"/>
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -630,7 +687,8 @@
                                             android:text="@string/first_answer"
                                             android:textAlignment="center"
                                             android:textColor="#fff"
-                                            android:textSize="12sp" />
+                                            android:textSize="12sp"
+                                            android:focusable="false"/>
 
 
                                     </LinearLayout>
@@ -641,7 +699,8 @@
                                         android:layout_marginTop="12dp"
                                         android:text="This is First answer content which is shown at the feed section"
                                         android:textColor="@color/design_default_color_primary"
-                                        android:textSize="16dp" />
+                                        android:textSize="16dp"
+                                        android:focusable="false"/>
 
                                 </LinearLayout>
 
@@ -651,13 +710,12 @@
                         </RelativeLayout>
 
 
-
-
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:layout_marginBottom="0dp"
+                            android:focusable="false"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
@@ -670,12 +728,14 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:focusable="false">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
+                                    android:orientation="horizontal"
+                                    android:focusable="false">
 
                                     <TextView
 
@@ -687,7 +747,8 @@
                                         android:paddingEnd="10dp"
                                         android:text="1 Like"
                                         android:textAlignment="textEnd"
-                                        android:textColor="@color/black" />
+                                        android:textColor="@color/black"
+                                        android:focusable="false"/>
 
                                     <TextView
 
@@ -699,7 +760,8 @@
                                         android:paddingEnd="10dp"
                                         android:text="3 Answer"
                                         android:textAlignment="center"
-                                        android:textColor="@color/black" />
+                                        android:textColor="@color/black"
+                                        android:focusable="false"/>
 
                                 </LinearLayout>
 
@@ -708,7 +770,8 @@
                                     android:layout_height="2dp"
                                     android:layout_marginStart="16dp"
                                     android:layout_marginEnd="16dp"
-                                    android:background="#D5CCCC" />
+                                    android:background="#D5CCCC"
+                                    android:focusable="false"/>
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -718,7 +781,8 @@
                                     android:paddingStart="-4dp"
                                     android:paddingTop="4dp"
                                     android:paddingEnd="-4dp"
-                                    android:paddingBottom="0dp">
+                                    android:paddingBottom="0dp"
+                                    android:focusable="false">
 
                                     <Button
 
@@ -728,7 +792,8 @@
                                         android:drawableLeft="@drawable/save_icon"
                                         android:text="@string/save"
                                         android:textColor="#6C6A6A"
-                                        app:backgroundTint="#FFFFFF" />
+                                        app:backgroundTint="#FFFFFF"
+                                        android:focusable="false"/>
 
                                     <Button
 
@@ -738,7 +803,8 @@
                                         android:drawableLeft="@drawable/like_icon"
                                         android:text="Like"
                                         android:textColor="#6C6A6A"
-                                        app:backgroundTint="#FFFFFF" />
+                                        app:backgroundTint="#FFFFFF"
+                                        android:focusable="false"/>
 
                                     <Button
 
@@ -748,7 +814,8 @@
                                         android:drawableLeft="@drawable/answer_icon"
                                         android:text="Answer"
                                         android:textColor="@color/orange"
-                                        app:backgroundTint="#FFFFFF" />
+                                        app:backgroundTint="#FFFFFF"
+                                        android:focusable="false"/>
 
 
                                 </LinearLayout>
@@ -762,7 +829,7 @@
 
 
                 </androidx.cardview.widget.CardView>
-
+                
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_view_3"
                     android:layout_width="match_parent"
@@ -772,6 +839,7 @@
                     app:cardBackgroundColor="#000"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="0dp"
+                    android:focusable="true"
                     android:nextFocusUp="@id/card_view_2"
                     android:nextFocusDown="@id/card_view_4"
                     >
@@ -808,6 +876,7 @@
                             android:layout_marginTop="12dp"
                             android:layout_marginEnd="4dp"
                             android:layout_marginBottom="4dp"
+                            
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="parent"
@@ -865,7 +934,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="2dp"
-                                        android:text="location"
+                                        android:text="Chhattisgarh"
                                         android:textSize="12sp"
                                         android:textColor="@color/grey_text"
                                         app:drawableStartCompat="@drawable/location_icon" />
@@ -889,6 +958,7 @@
                             android:textColor="@color/design_default_color_primary"
                             android:textSize="20sp"
                             android:textStyle="bold"
+                            
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
@@ -903,6 +973,7 @@
                             android:layout_marginEnd="4dp"
                             android:paddingBottom="8dp"
                             android:visibility="visible"
+                            
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintStart_toStartOf="parent"
@@ -978,13 +1049,12 @@
                         </RelativeLayout>
 
 
-
-
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:layout_marginBottom="0dp"
+                            
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
@@ -1090,16 +1160,19 @@
 
                 </androidx.cardview.widget.CardView>
 
-
+               <!-- Image-->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_view_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:layout_marginBottom="8dp"
                     app:cardBackgroundColor="#000"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="0dp"
+                    android:focusable="true"
                     android:nextFocusUp="@id/card_view_3"
+                    android:nextFocusDown="@id/card_view_5"
                     >
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -1112,7 +1185,9 @@
                             android:id="@+id/imageView4"
                             android:layout_width="match_parent"
                             android:layout_height="240dp"
-                            android:background="#C8FA4242"
+                            android:scaleX="1.5"
+                            android:scaleY="1.5"
+                            android:src="@drawable/bg2"
                             android:visibility="visible"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
@@ -1141,9 +1216,9 @@
                             android:id="@+id/basic_info_layout4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_marginTop="12dp"
-                            android:layout_marginEnd="4dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="4dp"
                             android:layout_marginBottom="4dp"
                             android:background="#fff"
 
@@ -1201,7 +1276,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="2dp"
-                                        android:text="location"
+                                        android:text="Chhattisgarh"
                                         android:textSize="12sp"
                                         android:textColor="@color/grey_text"
                                         app:drawableStartCompat="@drawable/location_icon" />
@@ -1326,6 +1401,7 @@
 
 
                 </androidx.cardview.widget.CardView>
+                
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_view_5"
@@ -1336,8 +1412,8 @@
                     app:cardBackgroundColor="#000"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="0dp"
-                    android:nextFocusUp="@id/card_view_2"
-                    android:nextFocusDown="@id/card_view_4"
+                    android:focusable="true"
+                    android:nextFocusUp="@id/card_view_4"
                     >
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -1429,7 +1505,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="2dp"
-                                        android:text="location"
+                                        android:text="Chhattisgarh"
                                         android:textSize="12sp"
                                         android:textColor="@color/grey_text"
                                         app:drawableStartCompat="@drawable/location_icon" />
@@ -1654,17 +1730,340 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    app:cardBackgroundColor="#000"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    android:focusable="true"
+                    android:nextFocusUp="@id/card_view_4"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff">
+
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_3_three_dot"
+                            android:visibility="visible"
+                            app:civ_circle_background_color="#fff"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.957"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.053"
+
+
+                            />
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/basic_info_layout6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginBottom="4dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginTop="2dp"
+                                android:orientation="horizontal">
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:src="@drawable/train_scene"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="8dp"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="4dp"
+                                            android:text="Neeraj Dhurandher"
+                                            android:textColor="#000"
+                                            android:textSize="16sp" />
+
+
+                                        <TextView
+
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text=" 3 hours ago"
+                                            android:textSize="12sp"
+                                            android:textColor="@color/grey_text" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="Chhattisgarh"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/grey_text"
+                                        app:drawableStartCompat="@drawable/location_icon" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/content_show6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="16dp"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="16dp"
+                            android:text="Hey I am Neeraj Dhurandher , looking for internships."
+                            android:textColor="@color/design_default_color_primary"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/basic_info_layout6" />
+
+                        <RelativeLayout
+                            android:id="@+id/first_answer_info_layout6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="4dp"
+                            android:paddingBottom="8dp"
+                            android:visibility="visible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/content_show6">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:orientation="horizontal">
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:src="@drawable/train_scene" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="4dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="8dp"
+                                            android:text="Neeraj"
+                                            android:textColor="@color/grey_text"
+                                            android:textSize="15sp" />
+
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text=" 3 hours ago"
+                                            android:textColor="@color/grey_text"
+                                            android:textSize="10sp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:background="@drawable/lite_green_btn"
+                                            android:padding="4dp"
+                                            android:text="@string/first_answer"
+                                            android:textAlignment="center"
+                                            android:textColor="#fff"
+                                            android:textSize="12sp" />
+
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="12dp"
+                                        android:text="This is First answer content which is shown at the feed section"
+                                        android:textColor="@color/design_default_color_primary"
+                                        android:textSize="16dp" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/first_answer_info_layout6"
+                            app:layout_constraintVertical_bias="0.0"
+
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="20dp"
+                                        android:layout_weight="1"
+                                        android:drawablePadding="10dp"
+                                        android:paddingStart="10dp"
+                                        android:paddingEnd="10dp"
+                                        android:text="1 Like"
+                                        android:textAlignment="textEnd"
+                                        android:textColor="@color/black" />
+
+                                    <TextView
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="20dp"
+                                        android:layout_weight="3"
+                                        android:drawablePadding="10dp"
+                                        android:paddingStart="10dp"
+                                        android:paddingEnd="10dp"
+                                        android:text="3 Answer"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:background="#D5CCCC" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="48dp"
+                                    android:layout_marginTop="5dp"
+                                    android:orientation="horizontal"
+                                    android:paddingStart="-4dp"
+                                    android:paddingTop="4dp"
+                                    android:paddingEnd="-4dp"
+                                    android:paddingBottom="0dp">
+
+                                    <Button
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:drawableLeft="@drawable/save_icon"
+                                        android:text="@string/save"
+                                        android:textColor="#6C6A6A"
+                                        app:backgroundTint="#FFFFFF" />
+
+                                    <Button
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:drawableLeft="@drawable/like_icon"
+                                        android:text="Like"
+                                        android:textColor="#6C6A6A"
+                                        app:backgroundTint="#FFFFFF" />
+
+                                    <Button
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:drawableLeft="@drawable/answer_icon"
+                                        android:text="Answer"
+                                        android:textColor="@color/orange"
+                                        app:backgroundTint="#FFFFFF" />
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="16dp"
                     />
-
-
-
-
+                
             </LinearLayout>
-
 
         </ScrollView>
 
